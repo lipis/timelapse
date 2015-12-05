@@ -20,7 +20,9 @@ import os
 import subprocess
 import sys
 import threading
+import shutil
 
+import requests
 import util
 
 
@@ -49,6 +51,9 @@ parser.add_argument('-r', '--rotation', dest='rotation', action='store', default
 parser.add_argument('--fswebcam', dest='fswebcam', action='store_true',
   help='Use fswebcam package.',
 )
+parser.add_argument('-u', '--uri', dest='uri', action='store',
+  help='URI of the IP camera (JPEG only for now - Not MJPEG).',
+)
 
 args = parser.parse_args()
 
@@ -67,7 +72,7 @@ class Camera(object):
     if self.is_working():
       util.print_out('CAMERA LOADED', self.full_name())
     else:
-      util.print_out('CAMERA FAILD', self.full_name())
+      util.print_out('CAMERA FAILED', self.full_name())
 
   def init_camera(self):
     pass
@@ -171,6 +176,38 @@ class FSWebCamera(Camera):
 
 
 ###############################################################################
+# IP Camera
+###############################################################################
+class IPCamera(Camera):
+  SUPPORTED_CONTENT_TYPES = ['image/jpeg;', 'image/jpeg']
+
+  def __init__(self, *arg, **kwargs):
+    self.uri = kwargs.pop('uri', '')
+    Camera.__init__(self, *arg, **kwargs)
+
+  def is_working(self):
+    if self.uri:
+      try:
+        req = requests.get(self.uri, stream=True)
+        return req.status_code == 200 and req.headers['content-type'] in self.SUPPORTED_CONTENT_TYPES
+      except Exception as e:
+        util.print_out('EXCEPTION GET', e.message)
+    return False
+
+  def save(self):
+    filename = self.get_fullname()
+    req = requests.get(self.uri, stream=True)
+    if req.status_code == 200:
+      with open(filename, 'wb') as f:
+        req.raw.decode_content = True
+        shutil.copyfileobj(req.raw, f)
+        util.print_out('SAVED', path.basename(filename))
+        return True
+    util.print_out('FAILED', path.basename(filename))
+    return False
+
+
+###############################################################################
 # Main
 ###############################################################################
 root = path.dirname(path.realpath(__file__))
@@ -201,6 +238,9 @@ def start_camera():
   if args.fswebcam:
     util.print_out('CAMERA INIT', args.name)
     camera = FSWebCamera(**settings)
+  elif args.uri:
+    util.print_out('CAMERA INIT', '%s (%s)' % (args.name, args.uri))
+    camera = IPCamera(uri=args.uri, **settings)
   elif has_cv:
     util.print_out('CAMERA INIT', '%s (%d)' % (args.name, args.camera_id))
     camera = CVCamera(camera_id=args.camera_id, **settings)
