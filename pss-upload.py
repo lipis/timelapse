@@ -197,7 +197,7 @@ if __name__ == '__main__':
   if not headers:
     raise sys.exit('Sorry, try again later!')
 
-  for i in range(args.threads):
+  for _ in range(args.threads):
     worker = threading.Thread(target=upload_file_queue, args=(upload_queue,))
     worker.setDaemon(True)
     worker.start()
