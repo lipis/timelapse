@@ -58,3 +58,10 @@ Examples
 - [Clouds](https://pss-camera.appspot.com/lipis/clouds/)
 - [Green Plant](https://pss-camera.appspot.com/lipis/green-plant/)
 - [Orchidaceae](https://pss-camera.appspot.com/lipis/orchidaceae/)
+
+Recommended Raspberry Pi Setup
+------------------------------
+- [Raspberry Pi 2 & 8GB MicroSD](http://www.modmypi.com/raspberry-pi/rpi2-model-b/raspberry-pi-2-model-b-new-and-8gb-microsd-card-bundle)
+- [Nwazet Pi Camera Box](http://www.modmypi.com/raspberry-pi/camera/nwazet-pi-camera-box-bundle-case,-lens-and-wall-mount-b-plus)
+- [Camera Board](http://www.modmypi.com/raspberry-pi/camera/raspberry-pi-camera-board-5mp-1080p-v1.3)
+- [WiFi Dongle](http://www.modmypi.com/raspberry-pi/accessories/wifi-dongles/wifi-dongle-nano-usb)
