@@ -61,7 +61,7 @@ Examples
 
 Recommended Raspberry Pi Setup
 ------------------------------
-- [Raspberry Pi 2 & 8GB MicroSD](http://www.modmypi.com/raspberry-pi/rpi2-model-b/raspberry-pi-2-model-b-new-and-8gb-microsd-card-bundle)
-- [Nwazet Pi Camera Box](http://www.modmypi.com/raspberry-pi/camera/nwazet-pi-camera-box-bundle-case,-lens-and-wall-mount-b-plus)
-- [Camera Board](http://www.modmypi.com/raspberry-pi/camera/raspberry-pi-camera-board-5mp-1080p-v1.3)
-- [WiFi Dongle](http://www.modmypi.com/raspberry-pi/accessories/wifi-dongles/wifi-dongle-nano-usb)
+- [Raspberry Pi 2 & 8GB MicroSD](http://www.modmypi.com/raspberry-pi/rpi2-model-b/raspberry-pi-2-model-b-new-and-8gb-microsd-card-bundle) — £33.99
+- [Nwazet Pi Camera Box](http://www.modmypi.com/raspberry-pi/camera/nwazet-pi-camera-box-bundle-case,-lens-and-wall-mount-b-plus) — £23.99
+- [Camera Board](http://www.modmypi.com/raspberry-pi/camera/raspberry-pi-camera-board-5mp-1080p-v1.3) — £12.99
+- [WiFi Dongle](http://www.modmypi.com/raspberry-pi/accessories/wifi-dongles/wifi-dongle-nano-usb) — £5.99
