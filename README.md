@@ -1,7 +1,7 @@
 Timelapse (PSS Camera)
 ======================
 
-Working on OS X, Windows, Linux, Raspberry Pi and possibly on anything that has
+> Works on OS X, Windows, Linux, Raspberry Pi and possibly on anything that has
 a camera and can run Python.
 
 ## :fire: Download and Run
